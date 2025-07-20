@@ -47,6 +47,7 @@ const MyPageGoogle = () => {
     };
 
     fetchUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigate]);
 
   // 로그아웃 처리
