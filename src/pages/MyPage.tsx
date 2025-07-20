@@ -2,42 +2,45 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { LOCAL_STORAGE_KEY } from "../constants/key";
-import { getMyInfo } from "../apis/user";
+import { getMyInfo, logout } from "../apis/user";
 
 const MyPage = () => {
   const navigate = useNavigate();
 
-  // localStorage에서 accessToken, refreshToken 다루는 커스텀 훅
+  // accessToken 관련 localStorage 접근 함수
   const { getItem, removeItem: removeAccess } = useLocalStorage(
     LOCAL_STORAGE_KEY.accessToken
   );
+
+  // refreshToken 관련 localStorage 접근 함수
   const { removeItem: removeRefresh } = useLocalStorage(
     LOCAL_STORAGE_KEY.refreshToken
   );
 
-  // 사용자 정보를 저장할 상태
+  // 사용자 정보 상태
   const [user, setUser] = useState<{
     name: string;
     avatar: string;
     bio: string;
   } | null>(null);
 
-  // 페이지 진입 시 accessToken 유무 확인 및 유저 정보 요청
   useEffect(() => {
+    // 토큰 유무 확인
     const token = getItem();
+
     if (!token || token === "null") {
-      // 토큰 없으면 로그인 페이지로 이동
+      // 토큰이 없으면 로그인 페이지로 이동
       navigate("/login");
       return;
     }
 
-    // 유저 정보 가져오기
+    // 사용자 정보 요청
     const fetchUser = async () => {
       try {
         const res = await getMyInfo();
-        setUser(res.data); // 받아온 사용자 정보 저장
+        setUser(res.data);
       } catch (error) {
-        // 토큰이 만료되었거나 에러 발생 시 로그인 페이지로 이동
+        // 인증 실패 시 로그인 페이지로 이동
         console.error("유저 정보 불러오기 실패:", error);
         navigate("/login");
       }
@@ -46,17 +49,25 @@ const MyPage = () => {
     fetchUser();
   }, [getItem, navigate]);
 
-  // 로그아웃 처리: 토큰 제거 + 로그인 페이지로 이동
-  const handleLogout = () => {
-    removeAccess();
-    removeRefresh();
-    navigate("/login");
+  // 로그아웃 처리
+  const handleLogout = async () => {
+    try {
+      // 서버에 로그아웃 요청
+      await logout();
+    } catch (err) {
+      // 로그아웃 요청이 실패해도 로컬 토큰만 제거해도 로그아웃 처리에는 충분함
+      console.error("서버 로그아웃 실패:", err);
+    } finally {
+      // 로컬에서 토큰 삭제 후 로그인 페이지로 이동
+      removeAccess();
+      removeRefresh();
+      navigate("/login");
+    }
   };
 
-  // 아직 사용자 정보 로딩 중이면 렌더링 안 함
+  // 사용자 정보 로딩 중일 때는 렌더링 생략
   if (!user) return null;
 
-  // 유저 정보 화면 렌더링
   return (
     <div className="h-screen flex flex-col items-center justify-center gap-4">
       <h2 className="text-gray-500 text-sm">프로필</h2>

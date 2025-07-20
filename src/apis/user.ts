@@ -6,8 +6,8 @@ export const getMyInfo = async () => {
   return data;
 };
 
-// 회원 탈퇴
-export const deleteMyAccount = async () => {
-  const { data } = await axiosInstance.delete("/v1/users");
+// 로그아웃
+export const logout = async () => {
+  const { data } = await axiosInstance.post("/v1/auth/signout");
   return data;
 };
