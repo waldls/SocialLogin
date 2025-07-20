@@ -26,9 +26,9 @@ const GoogleLoginRedirectPage = () => {
       setAccessToken(accessToken);
       setRefreshToken(refreshToken);
 
-      // 약간의 딜레이 후 /my 페이지로 이동 (스토리지 저장 안정성 확보 목적)
+      // 약간의 딜레이 후 /mygoogle 페이지로 이동 (스토리지 저장 안정성 확보 목적)
       setTimeout(() => {
-        navigate("/my");
+        navigate("/mygoogle");
       }, 100);
     } else {
       // 둘 중 하나라도 없으면 로그인 페이지로 이동

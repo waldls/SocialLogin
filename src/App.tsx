@@ -4,10 +4,11 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import NotFoundPage from "./pages/NotFoundPage";
-import MyPage from "./pages/MyPage";
+import MyPageGoogle from "./pages/MyPageGoogle";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import GoogleLoginRedirectPage from "./pages/GoogleLoginRedirectPage";
+import MyPageKakao from "./pages/MyPageKakao";
 
 // publicRoutes : 인증 없이 접근 가능한 라우트
 const publicRoutes: RouteObject[] = [
@@ -29,8 +30,12 @@ const protectedRoutes: RouteObject[] = [
     errorElement: <NotFoundPage />,
     children: [
       {
-        path: "my",
-        element: <MyPage />,
+        path: "mygoogle",
+        element: <MyPageGoogle />,
+      },
+      {
+        path: "mykakao",
+        element: <MyPageKakao />,
       },
     ],
   },
