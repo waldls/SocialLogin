@@ -4,7 +4,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import { LOCAL_STORAGE_KEY } from "../constants/key";
 import { getMyInfo, logout } from "../apis/user";
 
-const MyPage = () => {
+const MyPageGoogle = () => {
   const navigate = useNavigate();
 
   // accessToken 관련 localStorage 접근 함수
@@ -47,7 +47,7 @@ const MyPage = () => {
     };
 
     fetchUser();
-  }, [getItem, navigate]);
+  }, [navigate]);
 
   // 로그아웃 처리
   const handleLogout = async () => {
@@ -90,4 +90,4 @@ const MyPage = () => {
   );
 };
 
-export default MyPage;
+export default MyPageGoogle;

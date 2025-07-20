@@ -1,4 +1,3 @@
-// ✅ LoginPage.tsx
 import google from "../assets/googlelogo.png";
 import kakao from "../assets/kakaologo.svg";
 import KakaoLogin from "react-kakao-login";
@@ -7,7 +6,6 @@ import { useKakaoLogin } from "../hooks/useKakaoLogin";
 const LoginPage = () => {
   const kakaoClientId = import.meta.env.VITE_KAKAO_JAVASCRIPT_KEY;
 
-  // ✅ 너가 만든 훅에서 함수 가져오기
   const { handleSuccess, handleFail } = useKakaoLogin();
 
   const handleGoogleLogin = () => {
