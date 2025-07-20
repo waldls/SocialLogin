@@ -4,14 +4,15 @@ import KakaoLogin from "react-kakao-login";
 import { useKakaoLogin } from "../hooks/useKakaoLogin";
 
 const LoginPage = () => {
-  const kakaoClientId = import.meta.env.VITE_KAKAO_JAVASCRIPT_KEY;
-
-  const { handleSuccess, handleFail } = useKakaoLogin();
-
+  // 구글 로그인 버튼 클릭 시 서버의 구글 로그인 URL로 리다이렉션
   const handleGoogleLogin = () => {
     window.location.href =
       import.meta.env.VITE_SERVER_API_URL + "/v1/auth/google/login";
   };
+
+  // 카카오 자바스크립트 키 불러오기 & 로그인 핸들러 가져오기
+  const kakaoClientId = import.meta.env.VITE_KAKAO_JAVASCRIPT_KEY;
+  const { handleSuccess, handleFail } = useKakaoLogin();
 
   return (
     <div className="h-screen flex flex-col justify-center items-center gap-4">
@@ -28,11 +29,11 @@ const LoginPage = () => {
         <span className="font-black">구글 로그인</span>
       </button>
 
-      {/* 카카오 로그인 (네가 만든 스타일 유지) */}
+      {/* 카카오 로그인 */}
       <KakaoLogin
-        token={kakaoClientId}
-        onSuccess={handleSuccess}
-        onFail={handleFail}
+        token={kakaoClientId} // 자바스크립트 키
+        onSuccess={handleSuccess} // 로그인 성공 시 실행되는 함수
+        onFail={handleFail} // 로그인 실패 시 실행되는 함수
         render={({ onClick }) => (
           <button
             onClick={onClick}

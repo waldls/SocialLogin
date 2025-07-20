@@ -48,7 +48,7 @@ const MyPageGoogle = () => {
 
     fetchUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [navigate]);
+  }, [navigate]); // navigate에만 의존성에 추가
 
   // 로그아웃 처리
   const handleLogout = async () => {
