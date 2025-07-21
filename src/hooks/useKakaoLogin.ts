@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 // 카카오 응답 타입 정의
 type KakaoLoginResponse = {
   response: {
-    accessToken: string;
+    access_token: string;
   };
 };
 
@@ -12,10 +12,11 @@ export const useKakaoLogin = () => {
 
   // 카카오 로그인 성공 시 호출되는 함수
   const handleSuccess = async (res: unknown) => {
+    console.log("카카오 로그인 응답 전체:", res);
     try {
       // 응답 객체에서 accesstoken 호출
       const response = (res as KakaoLoginResponse).response;
-      const accessToken = response.accessToken;
+      const accessToken = response.access_token;
 
       // accessToken을 localStorage에 저장
       localStorage.setItem("accessToken", accessToken);
