@@ -27,7 +27,7 @@ const LoginPage = () => {
           {/* 구글 로그인 */}
           <button
             onClick={handleGoogleLogin}
-            className="flex items-center justify-center gap-3 min-w-[20rem] w-[20rem] h-[3.5rem] rounded-md bg-[#006aff85] text-black font-medium text-base cursor-pointer hover:opacity-90 transition-all shrink-0"
+            className="flex items-center justify-center gap-3 min-w-[20rem] w-[20rem] h-[3.5rem] rounded-md bg-[#0084ff51] text-black font-medium text-base cursor-pointer hover:opacity-90 transition-all shrink-0"
           >
             <img src={google} alt="구글 로고" className="w-5 h-5 shrink-0" />
             <span className="font-black whitespace-nowrap">구글 로그인</span>
