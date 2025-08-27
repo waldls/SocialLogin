@@ -53,7 +53,7 @@ const MyPageKakao = () => {
       <div className="w-[560px] mx-auto min-h-screen flex items-center justify-center p-8 shrink-0">
         <div className="relative w-full rounded-3xl border border-white/40 bg-white/70 backdrop-blur-xl shadow-2xl p-10 flex flex-col items-center gap-6">
           <div className="pointer-events-none absolute -top-8 left-1/2 h-16 w-56 -translate-x-1/2 rounded-full bg-white/60 blur-2xl" />
-          <h2 className="text-gray-500 text-sm whitespace-nowrap">내 프로필</h2>
+          <h2 className="text-gray-500 text-sm whitespace-nowrap">프로필</h2>
           <img
             src={user.avatar}
             alt="프로필 이미지"
