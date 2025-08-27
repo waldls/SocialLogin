@@ -70,23 +70,42 @@ const MyPageGoogle = () => {
   if (!user) return null;
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center gap-4">
-      <h2 className="text-gray-500 text-sm">프로필</h2>
-      <img
-        src={user.avatar}
-        alt="프로필 이미지"
-        className="w-24 h-24 rounded-full border object-cover"
-      />
-      <h1 className="text-xl font-bold">{user.name}님, 환영합니다 🎉</h1>
-      <p className="text-sm text-gray-600">{user.bio}</p>
-
-      {/* 로그아웃 버튼 */}
-      <button
-        onClick={handleLogout}
-        className="mt-4 bg-red-400 px-4 py-2 rounded text-white hover:bg-red-600 transition"
-      >
-        로그아웃
-      </button>
+    <div className="relative min-h-screen w-screen overflow-x-auto bg-gradient-to-b from-white via-indigo-100 to-indigo-200">
+      <div className="w-[560px] mx-auto min-h-screen flex items-center justify-center p-8 shrink-0">
+        <div className="relative w-full rounded-3xl border border-white/40 bg-white/70 backdrop-blur-xl shadow-2xl p-10 flex flex-col items-center gap-6">
+          <div className="pointer-events-none absolute -top-8 left-1/2 h-16 w-56 -translate-x-1/2 rounded-full bg-white/60 blur-2xl" />
+          <h2 className="text-gray-500 text-sm whitespace-nowrap">프로필</h2>
+          <img
+            src={user.avatar}
+            alt="프로필 이미지"
+            className="w-28 h-28 rounded-full object-cover shadow-lg ring-4 ring-indigo-200 ring-offset-4 ring-offset-white"
+          />
+          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-900 whitespace-nowrap">
+            <span className="bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
+              {user.name}
+            </span>
+            <span className="text-gray-800"> 님, 환영합니다 🎉</span>
+          </h1>
+          {user.bio && (
+            <p className="text-sm text-gray-700/90 text-center leading-relaxed whitespace-pre-line">
+              {user.bio}
+            </p>
+          )}
+          <button
+            onClick={handleLogout}
+            className="mt-2 h-11 px-5 rounded-xl bg-red-400 text-white font-semibold shadow-md hover:shadow-lg hover:bg-red-600 active:scale-[0.98] transition"
+          >
+            로그아웃
+          </button>
+          <div className="mt-3 text-[11px] text-gray-500 text-center">
+            안전한 사용을 위해{" "}
+            <span className="font-semibold text-gray-600">
+              이용 후 로그아웃
+            </span>
+            을 권장합니다.
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
