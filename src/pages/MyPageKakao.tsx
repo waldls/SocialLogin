@@ -49,23 +49,29 @@ const MyPageKakao = () => {
 
   // 마이페이지 화면
   return (
-    <div className="h-screen flex flex-col items-center justify-center gap-4">
-      <h2 className="text-gray-500 text-sm">카카오 프로필</h2>
-      <img
-        src={user.avatar}
-        alt="프로필 이미지"
-        className="w-24 h-24 rounded-full border object-cover"
-      />
-      <h1 className="text-xl font-bold">{user.name}님, 환영합니다 🎉</h1>
-      <p className="text-sm text-gray-600">{user.bio}</p>
-
-      {/* 로그아웃 버튼 */}
-      <button
-        onClick={handleLogout}
-        className="mt-4 bg-yellow-400 px-4 py-2 rounded text-white hover:bg-yellow-600 transition"
-      >
-        로그아웃
-      </button>
+    <div className="h-screen w-screen overflow-x-auto bg-white">
+      <div className="w-[480px] mx-auto h-screen flex flex-col items-center justify-center gap-4 shrink-0">
+        <h2 className="text-gray-500 text-sm whitespace-nowrap shrink-0">
+          카카오 프로필
+        </h2>
+        <img
+          src={user.avatar}
+          alt="프로필 이미지"
+          className="w-24 h-24 rounded-full border object-cover shrink-0"
+        />
+        <h1 className="text-xl font-bold whitespace-nowrap shrink-0">
+          {user.name}님, 환영합니다 🎉
+        </h1>
+        <p className="text-sm text-gray-600 whitespace-nowrap shrink-0">
+          {user.bio}
+        </p>
+        <button
+          onClick={handleLogout}
+          className="mt-4 bg-yellow-400 px-4 py-2 rounded text-white hover:bg-yellow-600 transition shrink-0"
+        >
+          로그아웃
+        </button>
+      </div>
     </div>
   );
 };
