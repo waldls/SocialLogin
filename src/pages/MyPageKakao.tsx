@@ -63,13 +63,8 @@ const MyPageKakao = () => {
             <span className="bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
               {user.name}
             </span>
-            <span className="text-gray-800"> 님, 환영합니다 🎉</span>
+            <span className="text-gray-800">님, 환영합니다 🎉</span>
           </h1>
-          {user.bio && (
-            <p className="text-sm text-gray-700/90 text-center leading-relaxed whitespace-pre-line">
-              {user.bio}
-            </p>
-          )}
           <button
             onClick={handleLogout}
             className="mt-2 h-11 px-5 rounded-xl bg-yellow-400 text-white font-semibold shadow-md hover:shadow-lg hover:bg-yellow-500 active:scale-[0.98] transition"
