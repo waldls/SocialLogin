@@ -19,7 +19,7 @@ export const NotFoundPage = () => {
         </p>
         <Link
           to="/"
-          className="mt-4 px-6 py-3 rounded-2xl bg-indigo-600 text-white font-medium shadow-lg hover:bg-indigo-700 transition-all duration-300 whitespace-nowrap"
+          className="w-[240px] h-[52px] bg-indigo-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition shrink-0 flex items-center justify-center"
         >
           홈으로 돌아가기
         </Link>
