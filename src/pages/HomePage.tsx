@@ -11,7 +11,7 @@ const HomePage = () => {
         </h1>
 
         <p className="text-lg text-gray-600 mb-10 shrink-0">
-          다양한 소셜 계정으로 간편하게 로그인해보세요.
+          다양한 소셜 계정으로 간편하게 로그인 해보세요!
         </p>
 
         <button
