@@ -7,7 +7,7 @@ const HomePage = () => {
     <div className="min-h-screen w-screen overflow-x-auto bg-gradient-to-b from-white via-indigo-100 to-indigo-200">
       <div className="w-[640px] mx-auto min-h-screen flex flex-col items-center justify-center px-6 text-center shrink-0">
         <h1 className="text-5xl font-extrabold text-gray-800 mb-4 whitespace-nowrap shrink-0">
-          Welcome to <span className="text-indigo-600">Social Login</span> Demo
+          Welcome to <span className="text-indigo-600">TwinAuth</span>!
         </h1>
 
         <p className="text-lg text-gray-600 mb-10 shrink-0">
